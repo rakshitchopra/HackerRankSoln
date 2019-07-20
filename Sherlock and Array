@@ -1,0 +1,27 @@
+QUESTION->
+Watson gives Sherlock an array of integers. His challenge is to find an element of the array such that 
+the sum of all elements to the left is equal to the sum of all elements to the right. 
+Sample Input 0
+2
+3
+1 2 3
+4
+1 2 3 3
+Sample Output 0
+NO
+YES
+solution->
+static String balancedSums(List<Integer> A) {
+            int total=0;
+            for(int X:A)
+                total+=X; 
+            int sum=0;       
+            for(int X:A)
+            {
+                total-=X;
+                if(sum==total)
+                    return "YES";
+                sum+=X;    
+            }
+        return "NO";    
+    }
